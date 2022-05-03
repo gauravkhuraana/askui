@@ -16,7 +16,7 @@ export class Annotation {
     script.innerHTML = `
       var el = document.getElementsByTagName("bounding-box-renderer");
       el[0].setAttribute("shouldrenderimage", true);
-      el[0].setAttribute("imagestr", "${this.image.trim()}"); 
+      el[0].setAttribute("imagestr", "${this.image.trim().replace(/(\r\n|\n|\r)/gm, '')}"); 
       el[0].setAttribute("detectedobjects", JSON.stringify(${JSON.stringify(this.objects)}));
     `;
     template.window.document.body.appendChild(script);
