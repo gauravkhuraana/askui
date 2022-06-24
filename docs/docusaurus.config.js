@@ -15,7 +15,16 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/askui_icon_positive_rgb-150x150.png',
   organizationName: 'askui',
-  plugins: ['docusaurus-plugin-sass'],
+  plugins: [
+    'docusaurus-plugin-sass',
+    [
+      'docusaurus-plugin-typedoc',
+      {
+        entryPoints: ['../packages/askui-nodejs/src/main.ts'],
+        tsconfig: '../packages/askui-nodejs/tsconfig.json',
+      },
+    ],
+  ],
   projectName: 'askui', // Usually your repo name.
 
   presets: [
